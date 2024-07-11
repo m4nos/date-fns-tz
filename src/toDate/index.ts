@@ -183,6 +183,11 @@ function splitDateString(dateString: string) {
     }
   }
 
+  // Adjust for [GMT] suffix
+  if (dateStrings.time?.includes('Z[GMT]')) {
+    dateStrings.time = dateStrings.time.replace('Z[GMT]', '')
+  }
+
   return dateStrings
 }
 
